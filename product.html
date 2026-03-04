@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serum Vitamina C Iluminador | Fefy Cosmetics</title>
+    <meta name="description" content="Serum con 15% Vitamina C pura. Ilumina, unifica el tono y reduce manchas. 100% natural y vegano.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-styles.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>✨ Envío gratis en pedidos superiores a 50€ ✨ | 100% Natural & Cruelty-Free</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="index.html" class="logo">
+                    <div class="logo-circle">
+                        <span class="logo-text">FC</span>
+                    </div>
+                    <span class="logo-brand">FEFY COSMETICS</span>
+                </a>
+            </div>
+            
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="index.html" class="nav__link">Inicio</a></li>
+                <li><a href="index.html#productos" class="nav__link active">Productos</a></li>
+                <li><a href="quiz.html" class="nav__link">Tu Rutina</a></li>
+                <li><a href="index.html#nosotros" class="nav__link">Nosotros</a></li>
+                <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+            
+            <div class="nav__actions">
+                <button class="action-btn search-toggle" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="action-btn" aria-label="Cuenta" onclick="showLoginModal()">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="action-btn wishlist-btn" aria-label="Favoritos">
+                    <i class="far fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="action-btn cart-btn" aria-label="Carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Buscar productos..." id="searchInput">
+            <button class="search-close" onclick="closeSearch()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="index.html#productos">Productos</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="#">Cuidado Facial</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Serum Vitamina C Iluminador</span>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail__grid">
+                <!-- Product Images -->
+                <div class="product-images" data-aos="fade-right">
+                    <div class="product-images__main">
+                        <span class="product-badge badge-bestseller">Bestseller</span>
+                        <span class="product-badge badge-stock">¡Solo 5 left!</span>
+                        <div class="image-main">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <button class="zoom-btn" onclick="openZoom()">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="product-images__thumbs">
+                        <div class="thumb active" data-index="0">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <div class="thumb" data-index="1">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="thumb" data-index="2">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="thumb" data-index="3">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info" data-aos="fade-left">
+                    <div class="product-header">
+                        <span class="product-category">Serum</span>
+                        <h1 class="product-title">Serum Vitamina C Iluminador</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">4.8 (128 reseñas)</span>
+                            <span class="divider">|</span>
+                            <span class="skin-types">✓ Para todo tipo de piel</span>
+                        </div>
+                    </div>
+
+                    <div class="product-price-section">
+                        <div class="price-main">
+                            <span class="current-price">€34.90</span>
+                            <span class="price-per-unit">€69.80 / 100ml</span>
+                        </div>
+                        <div class="subscription-option">
+                            <label class="subscription-label">
+                                <input type="checkbox" id="subscribeCheck">
+                                <div class="subscription-box">
+                                    <div class="subscription-header">
+                                        <span class="badge-save">AHORRA 15%</span>
+                                        <span class="subscription-title">Suscribirse y ahorrar</span>
+                                    </div>
+                                    <div class="subscription-price">
+                                        <span class="sub-price">€29.67</span>
+                                        <span class="sub-text">por envío</span>
+                                    </div>
+                                    <ul class="subscription-benefits">
+                                        <li><i class="fas fa-check"></i> Envío siempre gratis</li>
+                                        <li><i class="fas fa-check"></i> 15% descuento permanente</li>
+                                        <li><i class="fas fa-check"></i> Cancela cuando quieras</li>
+                                    </ul>
+                                    <select class="frequency-select">
+                                        <option>Envío cada 30 días</option>
+                                        <option>Envío cada 60 días</option>
+                                        <option>Envío cada 90 días</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="product-variants">
+                        <label class="variant-label">Tamaño:</label>
+                        <div class="variant-options">
+                            <button class="variant-btn active" data-price="34.90" data-size="30ml">
+                                <span class="size">30ml</span>
+                                <span class="price">€34.90</span>
+                            </button>
+                            <button class="variant-btn" data-price="54.90" data-size="50ml">
+                                <span class="size">50ml</span>
+                                <span class="price">€54.90</span>
+                                <span class="badge-best">-20%</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus" onclick="updateQty(-1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" max="5" id="quantity" readonly>
+                            <button class="qty-btn plus" onclick="updateQty(1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <button class="btn btn-primary btn-add-cart" onclick="addToCart()">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Añadir al Carrito</span>
+                        </button>
+                        <button class="btn btn-secondary btn-buy-now" onclick="buyNow()">
+                            <i class="fas fa-bolt"></i>
+                            <span>Comprar Ahora</span>
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <button class="meta-btn wishlist-add" onclick="toggleWishlist()">
+                            <i class="far fa-heart"></i>
+                            <span>Añadir a favoritos</span>
+                        </button>
+                        <button class="meta-btn" onclick="shareProduct()">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Compartir</span>
+                        </button>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Envío gratis >€50</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-undo"></i>
+                            <span>Devolución 30 días</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-gift"></i>
+                            <span>3 muestras gratis</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Pago seguro</span>
+                        </div>
+                    </div>
+
+                    <!-- Product Tabs -->
+                    <div class="product-tabs">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-tab="description">Descripción</button>
+                            <button class="tab-btn" data-tab="ingredients">Ingredientes</button>
+                            <button class="tab-btn" data-tab="reviews">Reseñas (128)</button>
+                            <button class="tab-btn" data-tab="shipping">Envío</button>
+                        </div>
+                        
+                        <div class="tabs-content">
+                            <div class="tab-panel active" id="description">
+                                <div class="benefits-list">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-sun"></i>
+                                        <div>
+                                            <h4>Ilumina y unifica</h4>
+                                            <p>Reduce manchas y da luminosidad al rostro</p>
+                                        </div>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-shield-virus"></i>
+                                        <div>
+                                            <h4>Poder antioxidante</h4>
+                                            <p>Protege contra radicales libres y polución</p>
+                                        </div>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-spa"></i>
+                                        <div>
+                                            <h4>Fórmula suave</h4>
+                                            <p>Apta para pieles sensibles, sin irritación</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="product-description">
+                                    Nuestro Serum de Vitamina C con 15% de ácido L-ascórbico puro es un potente tratamiento 
+                                    antioxidante que ilumina la piel, reduce la apariencia de manchas oscuras y protege 
+                                    contra el daño ambiental. Enriquecido con ácido hialurónico y vitamina E para una 
+                                    hidratación profunda y una piel radiante.
+                                </p>
+                                <div class="how-to-use">
+                                    <h4>Modo de uso</h4>
+                                    <ol>
+                                        <li>Aplica 3-4 gotas sobre piel limpia y seca</li>
+                                        <li>Extiende suavemente por rostro y cuello</li>
+                                        <li>Espera 1-2 minutos antes de la hidratante</li>
+                                        <li>Usa por la mañana seguido de SPF</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-panel" id="ingredients">
+                                <div class="ingredients-highlight">
+                                    <h4>Ingredientes Principales</h4>
+                                    <div class="ingredient-tags">
+                                        <span class="ingredient-tag">15% Vitamina C (Ácido L-Ascórbico)</span>
+                                        <span class="ingredient-tag">Ácido Hialurónico</span>
+                                        <span class="ingredient-tag">Vitamina E</span>
+                                        <span class="ingredient-tag">Niacinamida</span>
+                                        <span class="ingredient-tag">Aloe Vera</span>
+                                    </div>
+                                </div>
+                                <div class="ingredients-full">
+                                    <h4>Lista Completa de Ingredientes</h4>
+                                    <p>Aqua, Ascorbic Acid (Vitamina C), Sodium Hyaluronate, Tocopherol (Vitamina E), 
+                                    Niacinamide, Aloe Barbadensis Leaf Juice, Glycerin, Panthenol, Ferulic Acid, 
+                                    Citric Acid, Sodium Benzoate, Potassium Sorbate. 98% ingredientes de origen natural.</p>
+                                </div>
+                                <div class="certifications">
+                                    <h4>Certificaciones</h4>
+                                    <div class="cert-badges">
+                                        <span class="cert-badge"><i class="fas fa-leaf"></i> Vegano</span>
+                                        <span class="cert-badge"><i class="fas fa-paw"></i> Cruelty-Free</span>
+                                        <span class="cert-badge"><i class="fas fa-recycle"></i> Eco-friendly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-panel" id="reviews">
+                                <div class="reviews-summary">
+                                    <div class="rating-big">
+                                        <span class="rating-number">4.8</span>
+                                        <div class="stars-big">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span>128 reseñas</span>
+                                    </div>
+                                    <div class="rating-bars">
+                                        <div class="rating-bar">
+                                            <span>5★</span>
+                                            <div class="bar"><div style="width: 85%"></div></div>
+                                            <span>85%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>4★</span>
+                                            <div class="bar"><div style="width: 10%"></div></div>
+                                            <span>10%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>3★</span>
+                                            <div class="bar"><div style="width: 3%"></div></div>
+                                            <span>3%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>2★</span>
+                                            <div class="bar"><div style="width: 1%"></div></div>
+                                            <span>1%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>1★</span>
+                                            <div class="bar"><div style="width: 1%"></div></div>
+                                            <span>1%</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline" onclick="openReviewModal()">
+                                        Escribir Reseña
+                                    </button>
+                                </div>
+                                
+                                <div class="reviews-filters">
+                                    <select id="reviewFilter">
+                                        <option>Más recientes</option>
+                                        <option>Más útiles</option>
+                                        <option>Con fotos</option>
+                                        <option>5 estrellas</option>
+                                        <option>4 estrellas</option>
+                                    </select>
+                                    <div class="filter-tags">
+                                        <button class="filter-tag active">Todas</button>
+                                        <button class="filter-tag">Piel sensible</button>
+                                        <button class="filter-tag">Anti-manchas</button>
+                                        <button class="filter-tag">Luminosidad</button>
+                                    </div>
+                                </div>
+
+                                <div class="reviews-list" id="reviewsList">
+                                    <!-- Reviews will be loaded from localStorage -->
+                                </div>
+                                
+                                <button class="btn btn-outline btn-load-more" onclick="loadMoreReviews()">
+                                    Cargar más reseñas
+                                </button>
+                            </div>
+                            
+                            <div class="tab-panel" id="shipping">
+                                <div class="shipping-info">
+                                    <div class="shipping-option">
+                                        <i class="fas fa-truck"></i>
+                                        <div>
+                                            <h4>Envío Estándar</h4>
+                                            <p>3-5 días laborables</p>
+                                            <p class="price">Gratis en pedidos >€50 / €3.90</p>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <div>
+                                            <h4>Envío Express</h4>
+                                            <p>24-48 horas</p>
+                                            <p class="price">€5.90</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="returns-info">
+                                    <h4>Devoluciones</h4>
+                                    <p>Tienes 30 días desde la recepción para devolver tu pedido. Los productos deben estar sin abrir y en su embalaje original.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete the Routine -->
+            <div class="routine-section" data-aos="fade-up">
+                <h2 class="section-title">Completa tu Rutina</h2>
+                <p class="section-subtitle">Compra estos productos juntos y ahorra un 15%</p>
+                
+                <div class="routine-products">
+                    <div class="routine-item">
+                        <div class="routine-image">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <h4>Gel Limpiador Natural</h4>
+                        <p class="routine-price">€22.90</p>
+                        <label class="routine-check">
+                            <input type="checkbox" checked data-price="22.90">
+                            <span>Añadir</span>
+                        </label>
+                    </div>
+                    
+                    <div class="routine-plus">+</div>
+                    
+                    <div class="routine-item main">
+                        <div class="routine-image">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <h4>Serum Vitamina C</h4>
+                        <p class="routine-price">€34.90</p>
+                        <span class="routine-this">Este producto</span>
+                    </div>
+                    
+                    <div class="routine-plus">+</div>
+                    
+                    <div class="routine-item">
+                        <div class="routine-image">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h4>Crema Hidratante</h4>
+                        <p class="routine-price">€29.90</p>
+                        <label class="routine-check">
+                            <input type="checkbox" checked data-price="29.90">
+                            <span>Añadir</span>
+                        </label>
+                    </div>
+                    
+                    <div class="routine-equals">=</div>
+                    
+                    <div class="routine-total">
+                        <p class="total-original">€87.70</p>
+                        <p class="total-price">€74.55</p>
+                        <p class="total-save">Ahorras €13.15</p>
+                        <button class="btn btn-primary" onclick="addRoutineToCart()">
+                            Añadir Rutina
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Vistos Recientemente</h2>
+            <div class="products__grid" id="recentlyViewed">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer__top">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-circle small">
+                                <span class="logo-text">FC</span>
+                            </div>
+                            <span class="logo-brand">FEFY COSMETICS</span>
+                        </a>
+                        <p class="footer__description">
+                            Cosmética natural premium elaborada con amor y respeto por la naturaleza.
+                        </p>
+                        <div class="footer__social">
+                            <a href="https://instagram.com/fefycosmetics" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Categorías</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Cuidado Facial</a></li>
+                            <li><a href="#">Cuidado Corporal</a></li>
+                            <li><a href="#">Maquillaje Natural</a></li>
+                            <li><a href="#">Aceites Esenciales</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Ayuda</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                            <li><a href="#">Envíos y Devoluciones</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Seguimiento de Pedido</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Contacto</h4>
+                        <ul class="footer__contact">
+                            <li><i class="fas fa-envelope"></i><span>hola@fefycosmetics.com</span></li>
+                            <li><i class="fas fa-phone"></i><span>+34 123 456 789</span></li>
+                            <li><i class="fas fa-location-dot"></i><span>España</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="copyright">© 2024 Fefy Cosmetics. Todos los derechos reservados.</p>
+                    <div class="footer__payment">
+                        <span>Pago seguro con:</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="index.html#productos" class="btn btn-primary">Ver Productos</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-progress" id="cartProgress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">¡Te faltan €15.10 para envío gratis!</p>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price" id="cartTotal">€0.00</span>
+            </div>
+            <a href="checkout.html" class="btn btn-primary btn-full">Finalizar Compra</a>
+            <button class="btn btn-secondary btn-full" onclick="continueShopping()">Seguir Comprando</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoomModal">
+        <button class="zoom-close" onclick="closeZoom()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="zoom-content">
+            <i class="fas fa-droplet"></i>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeReviewModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Escribe tu Reseña</h3>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <div class="rating-input">
+                    <label>Tu valoración:</label>
+                    <div class="star-input">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tu nombre</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de piel</label>
+                    <select name="skinType">
+                        <option>Normal</option>
+                        <option>Seca</option>
+                        <option>Grasa</option>
+                        <option>Mixta</option>
+                        <option>Sensible</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tu reseña</label>
+                    <textarea name="review" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Publicar Reseña</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="product-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra tu Rutina Ideal | Fefy Cosmetics</title>
+    <meta name="description" content="Descubre la rutina de skincare perfecta para tu tipo de piel con nuestro quiz personalizado.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quiz-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="index.html" class="logo">
+                    <div class="logo-circle">
+                        <span class="logo-text">FC</span>
+                    </div>
+                    <span class="logo-brand">FEFY COSMETICS</span>
+                </a>
+            </div>
+            
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="index.html" class="nav__link">Inicio</a></li>
+                <li><a href="index.html#productos" class="nav__link">Productos</a></li>
+                <li><a href="quiz.html" class="nav__link active">Tu Rutina</a></li>
+                <li><a href="index.html#nosotros" class="nav__link">Nosotros</a></li>
+                <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+            
+            <div class="nav__actions">
+                <button class="action-btn cart-btn" aria-label="Carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menú">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Quiz Hero -->
+    <section class="quiz-hero">
+        <div class="container">
+            <div class="quiz-hero__content" data-aos="fade-up">
+                <span class="quiz-tag">✨ Personalizado</span>
+                <h1 class="quiz-title">Encuentra tu Rutina Ideal</h1>
+                <p class="quiz-subtitle">
+                    Responde 5 preguntas simples y descubre los productos perfectos 
+                    para tu tipo de piel y necesidades específicas.
+                </p>
+                <div class="quiz-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span>2 minutos</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span>15,000+ rutinas creadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span>4.9/5 valoración</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-large" onclick="startQuiz()">
+                    Comenzar Quiz
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <section class="quiz-container" id="quizContainer" style="display: none;">
+        <div class="container">
+            <!-- Progress -->
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgress"></div>
+                </div>
+                <span class="progress-text">Pregunta <span id="currentQuestion">1</span> de 5</span>
+            </div>
+
+            <!-- Question 1: Skin Type -->
+            <div class="quiz-question active" data-question="1">
+                <h2>¿Qué tipo de piel tienes?</h2>
+                <p class="question-desc">Elige la opción que mejor describa tu piel habitualmente</p>
+                
+                <div class="options-grid">
+                    <label class="quiz-option">
+                        <input type="radio" name="skinType" value="normal">
+                        <div class="option-card">
+                            <span class="option-icon">😊</span>
+                            <h3>Normal</h3>
+                            <p>Equilibrada, ni muy seca ni muy grasa. Poros pequeños y textura lisa.</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="skinType" value="dry">
+                        <div class="option-card">
+                            <span class="option-icon">💧</span>
+                            <h3>Seca</h3>
+                            <p>Tirante, descamación, necesita hidratación constante. Poros casi invisibles.</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="skinType" value="oily">
+                        <div class="option-card">
+                            <span class="option-icon">✨</span>
+                            <h3>Grasa</h3>
+                            <p>Brillo excesivo, especialmente en zona T. Poros dilatados y propensa a imperfecciones.</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="skinType" value="combination">
+                        <div class="option-card">
+                            <span class="option-icon">🌸</span>
+                            <h3>Mixta</h3>
+                            <p>Grasa en frente, nariz y mentón. Seca o normal en mejillas.</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="skinType" value="sensitive">
+                        <div class="option-card">
+                            <span class="option-icon">🌿</span>
+                            <h3>Sensible</h3>
+                            <p>Se irrita fácilmente, enrojecimiento, reactiva a productos nuevos.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 2: Age -->
+            <div class="quiz-question" data-question="2">
+                <h2>¿Qué rango de edad tienes?</h2>
+                <p class="question-desc">Esto nos ayuda a recomendar los activos más adecuados</p>
+                
+                <div class="options-grid">
+                    <label class="quiz-option">
+                        <input type="radio" name="age" value="18-25">
+                        <div class="option-card">
+                            <span class="option-icon">🌱</span>
+                            <h3>18-25 años</h3>
+                            <p>Prevención y mantenimiento de la piel joven</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="age" value="26-35">
+                        <div class="option-card">
+                            <span class="option-icon">🌷</span>
+                            <h3>26-35 años</h3>
+                            <p>Primeros signos de envejecimiento, hidratación intensa</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="age" value="36-45">
+                        <div class="option-card">
+                            <span class="option-icon">🌹</span>
+                            <h3>36-45 años</h3>
+                            <p>Tratamiento anti-edad activo, firmeza y luminosidad</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="age" value="46+">
+                        <div class="option-card">
+                            <span class="option-icon">✨</span>
+                            <h3>46+ años</h3>
+                            <p>Regeneración profunda, nutrición y revitalización</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3: Concerns -->
+            <div class="quiz-question" data-question="3">
+                <h2>¿Cuál es tu principal preocupación?</h2>
+                <p class="question-desc">Selecciona la que más te preocupe actualmente</p>
+                
+                <div class="options-grid">
+                    <label class="quiz-option">
+                        <input type="radio" name="concern" value="hydration">
+                        <div class="option-card">
+                            <span class="option-icon">💧</span>
+                            <h3>Hidratación</h3>
+                            <p>Piel deshidratada, tirante o descamada</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="concern" value="anti-aging">
+                        <div class="option-card">
+                            <span class="option-icon">⏰</span>
+                            <h3>Anti-edad</h3>
+                            <p>Líneas finas, arrugas, pérdida de firmeza</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="concern" value="acne">
+                        <div class="option-card">
+                            <span class="option-icon">🎯</span>
+                            <h3>Acné e Imperfecciones</h3>
+                            <p>Granitos, puntos negros, poros dilatados</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="concern" value="brightness">
+                        <div class="option-card">
+                            <span class="option-icon">☀️</span>
+                            <h3>Luminosidad</h3>
+                            <p>Piel apagada, manchas, tono desuniforme</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="concern" value="sensitivity">
+                        <div class="option-card">
+                            <span class="option-icon">🌿</span>
+                            <h3>Sensibilidad</h3>
+                            <p>Irritación, enrojecimiento, picor</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 4: Sensitivity -->
+            <div class="quiz-question" data-question="4">
+                <h2>¿Tu piel es sensible o reactiva?</h2>
+                <p class="question-desc">¿Te irritas fácilmente con productos nuevos?</p>
+                
+                <div class="options-grid">
+                    <label class="quiz-option">
+                        <input type="radio" name="sensitivity" value="no">
+                        <div class="option-card">
+                            <span class="option-icon">👍</span>
+                            <h3>No, tolera todo bien</h3>
+                            <p>Puedo usar cualquier producto sin problemas</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="sensitivity" value="little">
+                        <div class="option-card">
+                            <span class="option-icon">🤔</span>
+                            <h3>Un poco</h3>
+                            <p>A veces noto algo de irritación con productos fuertes</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="sensitivity" value="very">
+                        <div class="option-card">
+                            <span class="option-icon">⚠️</span>
+                            <h3>Mucho</h3>
+                            <p>Debo tener mucho cuidado con lo que uso</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 5: Budget -->
+            <div class="quiz-question" data-question="5">
+                <h2>¿Cuál es tu presupuesto?</h2>
+                <p class="question-desc">Para toda la rutina completa</p>
+                
+                <div class="options-grid">
+                    <label class="quiz-option">
+                        <input type="radio" name="budget" value="economic">
+                        <div class="option-card">
+                            <span class="option-icon">💚</span>
+                            <h3>Económico</h3>
+                            <p>Menos de €60</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="budget" value="medium">
+                        <div class="option-card">
+                            <span class="option-icon">💛</span>
+                            <h3>Medio</h3>
+                            <p>€60 - €100</p>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="budget" value="premium">
+                        <div class="option-card">
+                            <span class="option-icon">💎</span>
+                            <h3>Premium</h3>
+                            <p>Más de €100</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="quiz-nav">
+                <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()" style="visibility: hidden;">
+                    <i class="fas fa-arrow-left"></i>
+                    Anterior
+                </button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                    Siguiente
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="quiz-results" id="quizResults" style="display: none;">
+        <div class="container">
+            <div class="results-header" data-aos="fade-up">
+                <span class="result-tag">🎉 Tu Rutina Perfecta</span>
+                <h2>Rutina <span id="routineType"></span></h2>
+                <p id="routineDesc"></p>
+            </div>
+
+            <div class="routine-grid">
+                <!-- AM Routine -->
+                <div class="routine-column" data-aos="fade-right">
+                    <div class="routine-time">
+                        <i class="fas fa-sun"></i>
+                        <h3>Rutina de Mañana</h3>
+                    </div>
+                    <div class="routine-steps" id="amRoutine">
+                        <!-- Generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- PM Routine -->
+                <div class="routine-column" data-aos="fade-left">
+                    <div class="routine-time night">
+                        <i class="fas fa-moon"></i>
+                        <h3>Rutina de Noche</h3>
+                    </div>
+                    <div class="routine-steps" id="pmRoutine">
+                        <!-- Generated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="routine-summary" data-aos="fade-up">
+                <div class="summary-card">
+                    <h3>Resumen de tu Rutina</h3>
+                    <div class="summary-products" id="summaryProducts">
+                        <!-- Products list -->
+                    </div>
+                    <div class="summary-total">
+                        <div class="original-price" id="originalPrice"></div>
+                        <div class="final-price" id="finalPrice"></div>
+                        <div class="savings" id="savings"></div>
+                    </div>
+                    <div class="summary-actions">
+                        <button class="btn btn-primary btn-large" onclick="addRoutineToCart()">
+                            <i class="fas fa-shopping-bag"></i>
+                            Comprar Rutina Completa
+                        </button>
+                        <button class="btn btn-secondary" onclick="emailRoutine()">
+                            <i class="fas fa-envelope"></i>
+                            Enviar a mi Email
+                        </button>
+                    </div>
+                    <p class="guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        Garantía de satisfacción 30 días
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="routine-tips" data-aos="fade-up">
+                <h3>💡 Consejos para tu Rutina</h3>
+                <div class="tips-grid" id="tipsGrid">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
+
+            <!-- Restart -->
+            <div class="restart-quiz" data-aos="fade-up">
+                <button class="btn btn-outline" onclick="restartQuiz()">
+                    <i class="fas fa-redo"></i>
+                    Hacer el Quiz de Nuevo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer__top">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-circle small">
+                                <span class="logo-text">FC</span>
+                            </div>
+                            <span class="logo-brand">FEFY COSMETICS</span>
+                        </a>
+                        <p class="footer__description">Cosmética natural premium elaborada con amor.</p>
+                    </div>
+                    <div class="footer__column">
+                        <h4 class="footer__title">Categorías</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Cuidado Facial</a></li>
+                            <li><a href="#">Cuidado Corporal</a></li>
+                            <li><a href="#">Maquillaje</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4 class="footer__title">Ayuda</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Envíos</a></li>
+                            <li><a href="#">Devoluciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Fefy Cosmetics. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="quiz-script.js"></script>
+</body>
+</html>
