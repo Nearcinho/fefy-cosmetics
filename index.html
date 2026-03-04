@@ -570,64 +570,230 @@
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section class="instagram">
+    <!-- Instagram Feed Section - Enhanced -->
+    <section class="instagram" id="instagram">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">@fefycosmetics</span>
                 <h2 class="section-title">Síguenos en Instagram</h2>
-                <p class="section-subtitle">Comparte tu rutina con #FefyCosmetics</p>
+                <p class="section-subtitle">Comparte tu rutina con <strong>#FefyCosmetics</strong></p>
             </div>
             
-            <div class="instagram__grid" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
+            <!-- Widget de Instagram (SnapWidget) - REEMPLAZAR CON CÓDIGO REAL -->
+            <div class="instagram-widget-container" data-aos="fade-up" data-aos-delay="200">
+                <!-- 
+                INSTRUCCIONES:
+                1. Ve a https://snapwidget.com
+                2. Crea widget con cuenta @fefycosmetics (debe ser Business/Creator)
+                3. Copia el código iframe y reemplaza el placeholder de abajo
+                
+                CÓDIGO EJEMPLO:
+                <iframe src="https://snapwidget.com/embed/TU_ID" 
+                        class="snapwidget-widget" 
+                        allowtransparency="true" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        title="Posts from Instagram">
+                </iframe>
+                -->
+                
+                <!-- Placeholder mientras se configura SnapWidget -->
+                <div class="instagram-placeholder-widget">
+                    <div class="placeholder-content">
                         <i class="fab fa-instagram"></i>
+                        <h3>Feed de Instagram</h3>
+                        <p>Sigue a @fefycosmetics para ver todas las novedades</p>
+                        <a href="https://instagram.com/fefycosmetics" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-instagram"></i>
+                            Ver en Instagram
+                        </a>
                     </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+            
+            <!-- Posts Destacados - Los más populares -->
+            <div class="instagram-featured" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="featured-title">
+                    <i class="fas fa-fire"></i>
+                    Publicaciones Más Populares
+                </h3>
+                <p class="featured-subtitle">Contenido destacado de nuestra comunidad</p>
+                
+                <div class="featured-grid">
+                    <!-- Post 1: Rutina de skincare -->
+                    <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="featured-post" data-likes="3.2k" data-type="reel">
+                        <div class="post-badge">
+                            <i class="fas fa-video"></i>
+                            Reel
+                        </div>
+                        <div class="post-image" style="background: linear-gradient(135deg, #FFB6C1 0%, #FFD1DC 100%);">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 3.2k</span>
+                                <span><i class="fas fa-comment"></i> 156</span>
+                                <span><i class="fas fa-share"></i> 89</span>
+                            </div>
+                            <p class="post-caption">"Mi rutina de skincare AM completa con Fefy ✨🌸"</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 2: Before/After -->
+                    <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="featured-post" data-likes="4.1k" data-type="carousel">
+                        <div class="post-badge">
+                            <i class="fas fa-images"></i>
+                            Carrusel
+                        </div>
+                        <div class="post-image" style="background: linear-gradient(135deg, #A8E6CF 0%, #7FD1B9 100%);">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 4.1k</span>
+                                <span><i class="fas fa-comment"></i> 234</span>
+                                <span><i class="fas fa-bookmark"></i> 567</span>
+                            </div>
+                            <p class="post-caption">"Transformación en 30 días usando el Serum Vitamina C"</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 3: Producto estrella -->
+                    <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="featured-post" data-likes="2.8k" data-type="single">
+                        <div class="post-badge">
+                            <i class="fas fa-image"></i>
+                            Foto
+                        </div>
+                        <div class="post-image" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 2.8k</span>
+                                <span><i class="fas fa-comment"></i> 98</span>
+                                <span><i class="fas fa-shopping-bag"></i> 124 ventas</span>
+                            </div>
+                            <p class="post-caption">"El secreto de mi piel radiante 💧✨"</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 4: UGC Cliente -->
+                    <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="featured-post" data-likes="1.9k" data-type="story">
+                        <div class="post-badge">
+                            <i class="fas fa-user"></i>
+                            UGC
+                        </div>
+                        <div class="post-image" style="background: linear-gradient(135deg, #E8A4B8 0%, #D18A9E 100%);">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 1.9k</span>
+                                <span><i class="fas fa-comment"></i> 67</span>
+                            </div>
+                            <p class="post-caption">"@maria_cosmetics compartiendo su experiencia 💕"</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hashtag Feed -->
+            <div class="instagram-hashtag" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="hashtag-title">
+                    <i class="fas fa-hashtag"></i>
+                    FefyCosmetics
+                </h3>
+                <p class="hashtag-desc">Descubre cómo nuestra comunidad usa Fefy en su rutina diaria</p>
+                
+                <!-- Galería UGC (User Generated Content) -->
+                <div class="ugc-grid">
+                    <div class="ugc-item">
+                        <div class="ugc-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="ugc-info">
+                            <span class="ugc-username">@maria_cosmetics</span>
+                            <div class="ugc-stats">
+                                <i class="fas fa-heart"></i> 234
+                            </div>
+                            <p class="ugc-text">"Mi piel nunca se vio tan bien! Llevo 2 meses usando la rutina completa y los resultados son increíbles ✨"</p>
+                        </div>
                     </div>
+                    <div class="ugc-item">
+                        <div class="ugc-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="ugc-info">
+                            <span class="ugc-username">@laura_skincare</span>
+                            <div class="ugc-stats">
+                                <i class="fas fa-heart"></i> 189
+                            </div>
+                            <p class="ugc-text">"Adicta a este serum! La textura es súper ligera y se absorbe al instante 💧"</p>
+                        </div>
+                    </div>
+                    <div class="ugc-item">
+                        <div class="ugc-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="ugc-info">
+                            <span class="ugc-username">@carmen_natural</span>
+                            <div class="ugc-stats">
+                                <i class="fas fa-heart"></i> 312
+                            </div>
+                            <p class="ugc-text">"100% recomendado! Amo que sea natural y cruelty-free 🌿💕"</p>
+                        </div>
+                    </div>
+                    <div class="ugc-item">
+                        <div class="ugc-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="ugc-info">
+                            <span class="ugc-username">@paula_glow</span>
+                            <div class="ugc-stats">
+                                <i class="fas fa-heart"></i> 278
+                            </div>
+                            <p class="ugc-text">"La mejor inversión para mi piel. El glow es real! ✨"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Instagram -->
+            <div class="instagram-stats" data-aos="fade-up" data-aos-delay="500">
+                <div class="stat-box">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Seguidores</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-heart"></i>
+                    <span class="stat-number">5K+</span>
+                    <span class="stat-label">Likes/post</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-hashtag"></i>
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Posts con #FefyCosmetics</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-comments"></i>
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Comentarios/día</span>
+                </div>
+            </div>
+            
+            <!-- CTA Final -->
+            <div class="instagram-cta" data-aos="fade-up" data-aos-delay="600">
+                <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="btn btn-primary btn-large">
+                    <i class="fab fa-instagram"></i>
+                    Síguenos en Instagram
                 </a>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
-                    <div class="instagram-placeholder">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
+                <p class="cta-text">Únete a nuestra comunidad de +50,000 personas apasionadas por el skincare natural</p>
+                <div class="cta-features">
+                    <span><i class="fas fa-check"></i> Tips exclusivos</span>
+                    <span><i class="fas fa-check"></i> Sorteos mensuales</span>
+                    <span><i class="fas fa-check"></i> Lanzamientos anticipados</span>
+                </div>
             </div>
         </div>
     </section>
