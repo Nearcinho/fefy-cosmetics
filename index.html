@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fefy Cosmetics | Cosmética Natural de Lujo</title>
+    <meta name="description" content="Cosmética natural premium para el cuidado de tu piel. Productos veganos, cruelty-free y sostenibles.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>✨ Envío gratis en pedidos superiores a 50€ ✨ | 100% Natural & Cruelty-Free</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="#" class="logo">
+                    <div class="logo-circle">
+                        <span class="logo-text">FC</span>
+                    </div>
+                    <span class="logo-brand">FEFY COSMETICS</span>
+                </a>
+            </div>
+            
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#inicio" class="nav__link active">Inicio</a></li>
+                <li><a href="#productos" class="nav__link">Productos</a></li>
+                <li><a href="#categorias" class="nav__link">Categorías</a></li>
+                <li><a href="#nosotros" class="nav__link">Nosotros</a></li>
+                <li><a href="#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+            
+            <div class="nav__actions">
+                <button class="action-btn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="action-btn" aria-label="Cuenta">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="action-btn cart-btn" aria-label="Carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero__bg">
+            <div class="hero__gradient"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero__content">
+            <span class="hero__subtitle" data-aos="fade-down">Belleza Natural</span>
+            <h1 class="hero__title" data-aos="fade-up" data-aos-delay="100">
+                Descubre tu <br>
+                <span class="highlight">Radiancia Natural</span>
+            </h1>
+            <p class="hero__description" data-aos="fade-up" data-aos-delay="200">
+                Cosmética premium elaborada con ingredientes 100% naturales. 
+                Cuida tu piel con el amor que se merece.
+            </p>
+            <div class="hero__buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="#productos" class="btn btn-primary">
+                    <span>Descubrir Productos</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#nosotros" class="btn btn-secondary">
+                    Nuestra Historia
+                </a>
+            </div>
+            <div class="hero__stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat">
+                    <span class="stat__number">15K+</span>
+                    <span class="stat__label">Clientes Felices</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number">50+</span>
+                    <span class="stat__label">Productos Naturales</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number">100%</span>
+                    <span class="stat__label">Cruelty-Free</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__image" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-container">
+                <div class="image-glow"></div>
+                <div class="hero-product">
+                    <i class="fas fa-spa hero-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Colecciones</span>
+                <h2 class="section-title">Explora por Categoría</h2>
+                <p class="section-subtitle">Encuentra los mejores productos para cada necesidad de tu piel</p>
+            </div>
+            
+            <div class="categories__grid">
+                <div class="category-card category-card--large" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-card__image">
+                        <div class="category-icon"><i class="fas fa-face-smile"></i></div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3>Cuidado Facial</h3>
+                        <p>Serums, cremas y tratamientos anti-edad</p>
+                        <a href="#" class="category-link">Ver colección <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-card__image">
+                        <div class="category-icon"><i class="fas fa-hand-sparkles"></i></div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3>Manos & Uñas</h3>
+                        <p>Cremas y tratamientos nutritivos</p>
+                        <a href="#" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-card__image">
+                        <div class="category-icon"><i class="fas fa-spray-can"></i></div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3>Corporal</h3>
+                        <p>Aceites y exfoliantes naturales</p>
+                        <a href="#" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-card__image">
+                        <div class="category-icon"><i class="fas fa-eye"></i></div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3>Maquillaje</h3>
+                        <p>Productos naturales y veganos</p>
+                        <a href="#" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Productos Estrella</span>
+                <h2 class="section-title">Más Vendidos</h2>
+                <p class="section-subtitle">Los favoritos de nuestras clientas, elaborados con amor y naturaleza</p>
+            </div>
+            
+            <div class="products__grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card__badge">Bestseller</div>
+                    <div class="product-card__actions">
+                        <button class="action-icon" aria-label="Añadir a favoritos"><i class="far fa-heart"></i></button>
+                        <button class="action-icon" aria-label="Vista rápida"><i class="far fa-eye"></i></button>
+                    </div>
+                    <div class="product-card__image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <span class="product-category">Hidratación</span>
+                        <h3 class="product-name">Crema Hidratante Rosa Mosqueta</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(128 reseñas)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">€29.90</span>
+                        </div>
+                        <button class="btn btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card__badge badge-new">Nuevo</div>
+                    <div class="product-card__actions">
+                        <button class="action-icon" aria-label="Añadir a favoritos"><i class="far fa-heart"></i></button>
+                        <button class="action-icon" aria-label="Vista rápida"><i class="far fa-eye"></i></button>
+                    </div>
+                    <div class="product-card__image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <span class="product-category">Serum</span>
+                        <h3 class="product-name">Serum Vitamina C Iluminador</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(96 reseñas)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">€34.90</span>
+                        </div>
+                        <button class="btn btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card__actions">
+                        <button class="action-icon" aria-label="Añadir a favoritos"><i class="far fa-heart"></i></button>
+                        <button class="action-icon" aria-label="Vista rápida"><i class="far fa-eye"></i></button>
+                    </div>
+                    <div class="product-card__image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <span class="product-category">Limpieza</span>
+                        <h3 class="product-name">Gel Limpiador Natural</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(84 reseñas)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">€22.90</span>
+                        </div>
+                        <button class="btn btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-card__badge badge-offer">-20%</div>
+                    <div class="product-card__actions">
+                        <button class="action-icon" aria-label="Añadir a favoritos"><i class="far fa-heart"></i></button>
+                        <button class="action-icon" aria-label="Vista rápida"><i class="far fa-eye"></i></button>
+                    </div>
+                    <div class="product-card__image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <span class="product-category">Cuidado Nocturno</span>
+                        <h3 class="product-name">Aceite de Argán Puro</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156 reseñas)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">€27.90</span>
+                            <span class="current-price">€22.32</span>
+                        </div>
+                        <button class="btn btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products__cta" data-aos="fade-up">
+                <a href="#" class="btn btn-outline">
+                    Ver Todos los Productos
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__images" data-aos="fade-right">
+                    <div class="about-image main-image">
+                        <div class="image-frame">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                    </div>
+                    <div class="about-image floating-image">
+                        <div class="image-frame small">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="experience-badge">
+                        <span class="years">5+</span>
+                        <span class="text">Años de<br>Experiencia</span>
+                    </div>
+                </div>
+                
+                <div class="about__content" data-aos="fade-left">
+                    <span class="section-tag">Nuestra Historia</span>
+                    <h2 class="section-title">Cosmética Natural con Amor</h2>
+                    <p class="about__text">
+                        Fefy Cosmetics nació de la pasión por la belleza natural y el respeto por el medio ambiente. 
+                        Creemos que cada persona merece productos que cuiden su piel sin comprometer su salud ni la del planeta.
+                    </p>
+                    <p class="about__text">
+                        Todos nuestros productos están elaborados con ingredientes 100% naturales, orgánicos y de comercio justo. 
+                        No testamos en animales y nuestras fórmulas son libres de químicos dañinos.
+                    </p>
+                    
+                    <div class="about__features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>100% Natural</h4>
+                                <p>Ingredientes orgánicos certificados</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Cruelty-Free</h4>
+                                <p>Sin testing en animales</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Eco-Friendly</h4>
+                                <p>Packaging sostenible</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Sin Tóxicos</h4>
+                                <p>Sin parabenos ni sulfatos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary">
+                        <span>Conócenos Más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Banner -->
+    <section class="benefits-banner">
+        <div class="container">
+            <div class="benefits__grid">
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h4>Envío Gratis</h4>
+                    <p>En pedidos superiores a 50€</p>
+                </div>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h4>Pago Seguro</h4>
+                    <p>100% protección garantizada</p>
+                </div>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rotate-left"></i>
+                    </div>
+                    <h4>Devolución Fácil</h4>
+                    <p>30 días para devolver</p>
+                </div>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Atención 24/7</h4>
+                    <p>Soporte personalizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Testimonios</span>
+                <h2 class="section-title">Lo que Dicen Nuestras Clientas</h2>
+            </div>
+            
+            <div class="testimonials__slider" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card active">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Desde que uso los productos de Fefy Cosmetics mi piel ha cambiado completamente. 
+                        El serum de vitamina C es simplemente mágico. ¡Totalmente recomendado!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>María García</h4>
+                            <span>Cliente desde 2022</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Me encanta saber que estoy usando productos 100% naturales y cruelty-free. 
+                        La calidad es excepcional y el servicio al cliente es increíble."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Laura Martínez</h4>
+                            <span>Cliente desde 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "La crema de rosa mosqueta ha sido un antes y un después para mi rutina de skincare. 
+                        Mi piel nunca se había visto tan hidratada y radiante."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Carmen Ruiz</h4>
+                            <span>Cliente desde 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials__dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter__bg">
+            <div class="newsletter__pattern"></div>
+        </div>
+        <div class="container">
+            <div class="newsletter__content" data-aos="zoom-in">
+                <div class="newsletter__icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h2 class="newsletter__title">Únete a la Familia Fefy</h2>
+                <p class="newsletter__subtitle">
+                    Suscríbete y recibe un <strong>15% de descuento</strong> en tu primera compra.<br>
+                    Además, serás la primera en conocer nuestras novedades y ofertas exclusivas.
+                </p>
+                <form class="newsletter__form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirme
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" required>
+                        <span>Acepto la política de privacidad</span>
+                    </label>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">@fefycosmetics</span>
+                <h2 class="section-title">Síguenos en Instagram</h2>
+                <p class="section-subtitle">Comparte tu rutina con #FefyCosmetics</p>
+            </div>
+            
+            <div class="instagram__grid" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="instagram-item">
+                    <div class="instagram-placeholder">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer__top">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                        <a href="#" class="footer-logo">
+                            <div class="logo-circle small">
+                                <span class="logo-text">FC</span>
+                            </div>
+                            <span class="logo-brand">FEFY COSMETICS</span>
+                        </a>
+                        <p class="footer__description">
+                            Cosmética natural premium elaborada con amor y respeto por la naturaleza. 
+                            Cuida tu piel con lo mejor de la naturaleza.
+                        </p>
+                        <div class="footer__social">
+                            <a href="https://instagram.com/fefycosmetics" target="_blank" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Categorías</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Cuidado Facial</a></li>
+                            <li><a href="#">Cuidado Corporal</a></li>
+                            <li><a href="#">Maquillaje Natural</a></li>
+                            <li><a href="#">Aceites Esenciales</a></li>
+                            <li><a href="#">Sets & Regalos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Ayuda</h4>
+                        <ul class="footer__links">
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                            <li><a href="#">Envíos y Devoluciones</a></li>
+                            <li><a href="#">Guía de Tallas</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Seguimiento de Pedido</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">Contacto</h4>
+                        <ul class="footer__contact">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>hola@fefycosmetics.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+34 123 456 789</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-location-dot"></i>
+                                <span>España</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="copyright">
+                        © 2024 Fefy Cosmetics. Todos los derechos reservados.
+                    </p>
+                    <div class="footer__payment">
+                        <span>Pago seguro con:</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                    <div class="footer__legal">
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Términos y Condiciones</a>
+                        <a href="#">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="#productos" class="btn btn-primary">Ver Productos</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price">€0.00</span>
+            </div>
+            <button class="btn btn-primary btn-full">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
