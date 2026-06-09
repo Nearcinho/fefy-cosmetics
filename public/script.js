@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initPopups();
         initProductButtons();
         initCheckoutButton();
+        initInstagramFeed();
         
         // Update UI
         updateCartUI();
@@ -831,7 +832,94 @@ function generateId() {
     return 'id-' + Math.random().toString(36).substr(2, 9);
 }
 
-// Global exports for inline handlers
+// ==========================================
+// INSTAGRAM FEED
+// ==========================================
+async function loadInstagramFeed() {
+    const container = document.getElementById('instagramFeed');
+    if (!container) return;
+    
+    try {
+        const response = await fetch('/api/instagram-feed');
+        const data = await response.json();
+        
+        if (!data.success || !data.posts || data.posts.length === 0) {
+            throw new Error('No posts available');
+        }
+        
+        const posts = data.posts.slice(0, 8); // Mostrar máximo 8 posts
+        
+        let html = '';
+        posts.forEach(post => {
+            const typeIcon = post.type === 'reel' ? '<i class="fas fa-play-circle post-type-icon"></i>' :
+                           post.type === 'carousel' ? '<i class="fas fa-clone post-type-icon"></i>' : '';
+            
+            const likesFormatted = post.likes >= 1000 
+                ? (post.likes / 1000).toFixed(1) + 'k' 
+                : post.likes;
+            
+            html += `
+                <a href="${post.url}" target="_blank" class="instagram-post" data-aos="zoom-in" data-aos-delay="${Math.random() * 200}">
+                    <img src="${post.thumbnail || post.image}" alt="${post.caption?.substring(0, 50) || 'Instagram post'}" loading="lazy">
+                    ${typeIcon}
+                    <div class="post-overlay">
+                        <div class="post-stats">
+                            <span><i class="fas fa-heart"></i> ${likesFormatted}</span>
+                            <span><i class="fas fa-comment"></i> ${post.comments || 0}</span>
+                        </div>
+                        <p class="post-caption">${post.caption || ''}</p>
+                    </div>
+                </a>
+            `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Re-initialize AOS for new elements
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+        
+        console.log(`[Instagram] Loaded ${posts.length} posts from ${data.source}`);
+        
+    } catch (error) {
+        console.error('[Instagram] Error loading feed:', error);
+        
+        // Show fallback with link to Instagram
+        container.innerHTML = `
+            <div class="instagram-error">
+                <i class="fab fa-instagram"></i>
+                <h3>No pudimos cargar el feed</h3>
+                <p>Visita @fefycosmetics directamente en Instagram</p>
+                <a href="https://instagram.com/fefycosmetics" target="_blank" class="btn btn-primary" style="margin-top:16px;">
+                    <i class="fab fa-instagram"></i> Ver en Instagram
+                </a>
+            </div>
+        `;
+    }
+}
+
+// Load Instagram feed when section is visible
+function initInstagramFeed() {
+    const section = document.getElementById('instagram');
+    if (!section) return;
+    
+    // Use Intersection Observer to load when section is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadInstagramFeed();
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    observer.observe(section);
+}
+
+// ==========================================
+// GLOBAL EXPORTS
+// ==========================================
 window.AppState = AppState;
 window.openCart = openCart;
 window.closeCartSidebar = closeCartSidebar;
