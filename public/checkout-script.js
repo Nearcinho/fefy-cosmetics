@@ -49,11 +49,17 @@ function loadOrderSummary() {
         const itemTotal = item.price * item.quantity;
         subtotal += itemTotal;
         
+        // Detect if image is a real photo path or Font Awesome icon
+        const isImagePath = item.image && item.image.includes('/');
+        const imageHtml = isImagePath 
+            ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">`
+            : `<i class="fas ${item.image || 'fa-spa'}"></i>`;
+        
         html += `
             <div class="summary-item">
                 <div class="item-info">
-                    <div class="item-image">
-                        <i class="fas ${item.image}"></i>
+                    <div class="item-image" style="${isImagePath ? 'background:none;overflow:hidden;padding:0;' : ''}">
+                        ${imageHtml}
                     </div>
                     <div class="item-details">
                         <h4>${item.name}</h4>
@@ -261,57 +267,61 @@ function initGiftOption() {
     }
 }
 
-// Process Payment
-function processPayment() {
-    const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
-    
-    if (paymentMethod === 'card') {
-        const cardNumber = document.getElementById('cardNumber')?.value;
-        const cardName = document.getElementById('cardName')?.value;
-        const cardExpiry = document.getElementById('cardExpiry')?.value;
-        const cardCvc = document.getElementById('cardCvc')?.value;
-        
-        if (!cardNumber || !cardName || !cardExpiry || !cardCvc) {
-            showToast('Por favor completa los datos de la tarjeta', 'error');
-            return;
-        }
+// Process Payment with Mercado Pago Checkout Pro
+async function processPayment() {
+    if (AppState.cart.length === 0) {
+        showToast('Tu carrito está vacío', 'error');
+        setTimeout(() => window.location.href = 'index.html', 2000);
+        return;
     }
     
     // Show loading
     const loadingOverlay = document.getElementById('loadingOverlay');
     if (loadingOverlay) loadingOverlay.style.display = 'flex';
     
-    // Simulate processing
-    setTimeout(() => {
+    try {
+        // Get payer info from form
+        const email = document.getElementById('email')?.value;
+        const firstName = document.getElementById('firstName')?.value;
+        const lastName = document.getElementById('lastName')?.value;
+        
+        const items = AppState.cart.map(item => ({
+            id: item.id,
+            quantity: item.quantity
+        }));
+        
+        const payer = {};
+        if (email) payer.email = email;
+        if (firstName) payer.name = firstName;
+        if (lastName) payer.surname = lastName;
+        
+        const response = await fetch('/api/create-preference', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                items,
+                payer: Object.keys(payer).length > 0 ? payer : undefined
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Error creando la preferencia de pago');
+        }
+        
+        console.log('[MP] Preference created:', data.preferenceId);
+        
+        // Redirect to Mercado Pago checkout
+        window.location.href = data.initPoint || data.sandboxInitPoint;
+        
+    } catch (error) {
+        console.error('[MP] Checkout error:', error);
         if (loadingOverlay) loadingOverlay.style.display = 'none';
-        
-        // Generate order number
-        const orderNumber = 'FC-' + Date.now().toString().slice(-6);
-        
-        // Save order
-        const order = {
-            number: orderNumber,
-            date: new Date().toISOString(),
-            items: orderData.items,
-            total: orderData.total,
-            email: localStorage.getItem('checkout_email')
-        };
-        
-        localStorage.setItem('last_order', JSON.stringify(order));
-        
-        // Clear cart
-        AppState.cart = [];
-        saveCart();
-        
-        // Add loyalty points
-        addLoyaltyPoints(Math.floor(orderData.total));
-        
-        // Show confirmation
-        showConfirmation(order);
-        
-        // Go to step 4
-        goToStep(4);
-    }, 2000);
+        showToast(error.message || 'Error al iniciar el pago. Intenta de nuevo.', 'error');
+    }
 }
 
 // Show Confirmation

@@ -80,9 +80,12 @@ function addToCart() {
     const price = parseFloat(variantBtn?.dataset.price || 34.90);
     const isSubscription = document.getElementById('subscribeCheck')?.checked;
     
+    // Use catalog IDs for Mercado Pago integration
+    const productId = size === '50ml' ? 'serum-vit-c-50ml' : 'serum-vit-c-30ml';
+    
     const product = {
-        id: 'serum-vit-c-' + size,
-        name: 'Serum Vitamina C Iluminador',
+        id: productId,
+        name: 'Serum Vitamina C Iluminador' + (size !== '30ml' ? ' - ' + size : ''),
         price: isSubscription ? price * 0.85 : price,
         originalPrice: price,
         size: size,
@@ -93,7 +96,7 @@ function addToCart() {
     
     // Check if item already in cart
     const existingIndex = AppState.cart.findIndex(item => 
-        item.id === product.id && item.size === product.size
+        item.id === product.id
     );
     
     if (existingIndex > -1) {

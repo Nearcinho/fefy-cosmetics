@@ -1,0 +1,19 @@
+{
+  "name": "fefy-cosmetics",
+  "version": "2.0.0",
+  "description": "Fefy Cosmetics - Tienda online con Mercado Pago Checkout Pro",
+  "main": "api/create-preference.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "mercadopago": "^2.3.0"
+  },
+  "devDependencies": {
+    "vercel": "latest"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

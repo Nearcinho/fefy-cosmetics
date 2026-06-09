@@ -643,8 +643,48 @@
         </div>
     </div>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="index.html#productos" class="btn btn-primary" onclick="closeCartSidebar()">Ver Productos</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-shipping-progress" style="margin-bottom: 16px;">
+                <div class="progress-bar" style="height: 6px; background: #F2F2F2; border-radius: 3px; overflow: hidden;">
+                    <div class="progress-fill" id="progressFill" style="height: 100%; background: linear-gradient(90deg, #FFB6C1, #E8A4B8); width: 0%; transition: width 0.5s ease;"></div>
+                </div>
+                <p class="progress-text" id="progressText" style="font-size: 0.8rem; color: #999; margin-top: 6px; text-align: center;">¡Te faltan €50.00 para envío gratis!</p>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price" id="cartTotal">€0.00</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-checkout-mp" onclick="startMercadoPagoCheckout()">
+                <i class="fas fa-lock"></i> Pagar con Mercado Pago
+            </button>
+            <a href="checkout.html" class="btn btn-secondary btn-full" style="margin-top: 8px; font-size: 0.8rem;">
+                Ver detalle del pedido
+            </a>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="data/products.js"></script>
     <script src="script.js"></script>
     <script src="product-script.js"></script>
 </body>

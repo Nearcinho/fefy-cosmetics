@@ -29,26 +29,210 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize all modules
-    initDarkMode();
-    initHeader();
-    initMobileMenu();
-    initCart();
-    initWishlist();
-    initSearch();
-    initTestimonials();
-    initNewsletter();
-    initScrollEffects();
-    initAnimations();
-    initPopups();
-    
-    // Update UI
-    updateCartUI();
-    updateWishlistUI();
-    updateLoyaltyUI();
-    
-    console.log('🌸 Fefy Cosmetics - Full E-commerce Loaded');
+    // Load products catalog then initialize
+    loadProductsCatalog().then(() => {
+        // Initialize all modules
+        initDarkMode();
+        initHeader();
+        initMobileMenu();
+        initCart();
+        initWishlist();
+        initSearch();
+        initTestimonials();
+        initNewsletter();
+        initScrollEffects();
+        initAnimations();
+        initPopups();
+        initProductButtons();
+        initCheckoutButton();
+        
+        // Update UI
+        updateCartUI();
+        updateWishlistUI();
+        updateLoyaltyUI();
+        
+        console.log('🌸 Fefy Cosmetics - Mercado Pago Checkout Pro Ready');
+    });
 });
+
+// ==========================================
+// PRODUCTS CATALOG LOADER
+// ==========================================
+async function loadProductsCatalog() {
+    if (typeof FEFY_PRODUCTS !== 'undefined') return;
+    
+    try {
+        const script = document.createElement('script');
+        script.src = 'data/products.js';
+        script.async = false;
+        document.head.appendChild(script);
+        
+        // Wait for script to load
+        await new Promise((resolve, reject) => {
+            script.onload = resolve;
+            script.onerror = reject;
+        });
+    } catch (e) {
+        console.warn('Could not load products catalog, using fallback');
+    }
+}
+
+// ==========================================
+// PRODUCT BUTTONS (Connect Add to Cart buttons)
+// ==========================================
+function initProductButtons() {
+    // Connect all buttons with data-product-id attribute
+    document.querySelectorAll('.btn-add-cart[data-product-id]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const productId = this.getAttribute('data-product-id');
+            if (productId) {
+                addProductToCartById(productId);
+            }
+        });
+    });
+    
+    // Initialize image gallery hover for cards with multiple images
+    initProductImageGalleries();
+}
+
+function initProductImageGalleries() {
+    document.querySelectorAll('.product-card').forEach(card => {
+        const img = card.querySelector('.product-card__image img');
+        const dots = card.querySelectorAll('.image-gallery-dots .dot');
+        
+        if (!img || dots.length <= 1) return;
+        
+        const productId = card.querySelector('.btn-add-cart')?.getAttribute('data-product-id');
+        if (!productId) return;
+        
+        const product = window.getProductById ? window.getProductById(productId) : null;
+        if (!product || !product.gallery || product.gallery.length <= 1) return;
+        
+        let currentIndex = 0;
+        
+        card.addEventListener('mouseenter', () => {
+            // Start gallery rotation
+            const interval = setInterval(() => {
+                if (!card.matches(':hover')) {
+                    clearInterval(interval);
+                    // Reset to first image
+                    img.src = product.gallery[0];
+                    dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+                    return;
+                }
+                currentIndex = (currentIndex + 1) % product.gallery.length;
+                img.src = product.gallery[currentIndex];
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentIndex);
+                });
+            }, 1200);
+        });
+    });
+}
+
+function addProductToCartById(productId) {
+    const product = window.getProductById ? window.getProductById(productId) : null;
+    
+    if (!product) {
+        showToast('Producto no encontrado', 'error');
+        return;
+    }
+    
+    const cartItem = {
+        id: product.id,
+        name: product.title,
+        price: product.price,
+        originalPrice: product.originalPrice,
+        size: product.size || 'Default',
+        image: product.image || product.gallery?.[0] || 'fa-spa',
+        quantity: 1
+    };
+    
+    const existingItem = AppState.cart.find(item => item.id === cartItem.id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        AppState.cart.push(cartItem);
+    }
+    
+    saveCart();
+    updateCartUI();
+    openCart();
+    
+    // Animation
+    const cartBtn = document.querySelector('.cart-btn');
+    if (cartBtn) {
+        cartBtn.style.transform = 'scale(1.3)';
+        setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
+    }
+    
+    showToast(`${product.title} añadido al carrito`, 'success');
+}
+
+// ==========================================
+// CHECKOUT WITH MERCADO PAGO
+// ==========================================
+function initCheckoutButton() {
+    // The checkout button in cart sidebar will be handled dynamically in renderCart
+}
+
+async function startMercadoPagoCheckout() {
+    if (AppState.cart.length === 0) {
+        showToast('Tu carrito está vacío', 'error');
+        return;
+    }
+    
+    // Show loading
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.id = 'mpLoadingOverlay';
+    loadingOverlay.innerHTML = `
+        <div style="position:fixed;inset:0;background:rgba(255,255,255,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+            <div style="width:60px;height:60px;border:4px solid #FFB6C1;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite;"></div>
+            <p style="font-family:'Montserrat',sans-serif;color:#666;font-size:1rem;">Preparando tu pago seguro...</p>
+            <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+        </div>
+    `;
+    document.body.appendChild(loadingOverlay);
+    
+    try {
+        const items = AppState.cart.map(item => ({
+            id: item.id,
+            quantity: item.quantity
+        }));
+        
+        const response = await fetch('/api/create-preference', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ items })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Error creando la preferencia de pago');
+        }
+        
+        console.log('[MP] Preference created:', data.preferenceId);
+        
+        // Redirect to Mercado Pago checkout
+        window.location.href = data.initPoint || data.sandboxInitPoint;
+        
+    } catch (error) {
+        console.error('[MP] Checkout error:', error);
+        showToast(error.message || 'Error al iniciar el pago. Intenta de nuevo.', 'error');
+        
+        const overlay = document.getElementById('mpLoadingOverlay');
+        if (overlay) overlay.remove();
+    }
+}
+
+window.startMercadoPagoCheckout = startMercadoPagoCheckout;
+window.addProductToCartById = addProductToCartById;
 
 // ==========================================
 // DARK MODE
@@ -273,10 +457,16 @@ function renderCart() {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
         
+        // Detect if image is a real photo path or Font Awesome icon
+        const isImagePath = item.image && item.image.includes('/');
+        const imageHtml = isImagePath 
+            ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`
+            : `<i class="fas ${item.image || 'fa-spa'}"></i>`;
+        
         html += `
             <div class="cart-item">
-                <div class="cart-item__image">
-                    <i class="fas ${item.image}"></i>
+                <div class="cart-item__image" style="${isImagePath ? 'background:none;overflow:hidden;' : ''}">
+                    ${imageHtml}
                 </div>
                 <div class="cart-item__details">
                     <h4>${item.name}</h4>
@@ -324,6 +514,15 @@ function renderCart() {
         // Update total
         const cartTotalEl = document.getElementById('cartTotal');
         if (cartTotalEl) cartTotalEl.textContent = `€${finalTotal.toFixed(2)}`;
+        
+        // Update checkout button to use Mercado Pago
+        const checkoutBtn = cartFooter.querySelector('.btn-checkout-mp');
+        if (checkoutBtn) {
+            checkoutBtn.onclick = function(e) {
+                e.preventDefault();
+                startMercadoPagoCheckout();
+            };
+        }
     }
 }
 
