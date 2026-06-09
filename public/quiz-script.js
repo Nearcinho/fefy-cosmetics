@@ -309,7 +309,7 @@ function displayRoutine(routine) {
                         <h4>${product.name}</h4>
                         <p>${product.desc}</p>
                         ${product.bestseller ? '<span class="badge-bestseller">Bestseller</span>' : ''}
-                        <span class="step-price">€${product.price.toFixed(2)}</span>
+                        <span class="step-price">$${product.price.toLocaleString('es-CL')}</span>
                     </div>
                 </div>
             </div>
@@ -330,7 +330,7 @@ function displayRoutine(routine) {
                         <h4>${product.name}</h4>
                         <p>${product.desc}</p>
                         ${product.bestseller ? '<span class="badge-bestseller">Bestseller</span>' : ''}
-                        <span class="step-price">€${product.price.toFixed(2)}</span>
+                        <span class="step-price">$${product.price.toLocaleString('es-CL')}</span>
                     </div>
                 </div>
             </div>
@@ -346,7 +346,7 @@ function displayRoutine(routine) {
                     <i class="fas ${product.icon}"></i>
                 </div>
                 <span class="product-name">${product.name}</span>
-                <span class="product-price">€${product.price.toFixed(2)}</span>
+                <span class="product-price">$${product.price.toLocaleString('es-CL')}</span>
             </div>
         `).join('');
     }
@@ -356,9 +356,9 @@ function displayRoutine(routine) {
     const finalPrice = document.getElementById('finalPrice');
     const savings = document.getElementById('savings');
     
-    if (originalPrice) originalPrice.textContent = `€${routine.originalTotal.toFixed(2)}`;
-    if (finalPrice) finalPrice.textContent = `€${routine.discountedTotal.toFixed(2)}`;
-    if (savings) savings.textContent = `Ahorras €${routine.savings.toFixed(2)} (15% OFF)`;
+    if (originalPrice) originalPrice.textContent = `$${routine.originalTotal.toLocaleString('es-CL')}`;
+    if (finalPrice) finalPrice.textContent = `$${routine.discountedTotal.toLocaleString('es-CL')}`;
+    if (savings) savings.textContent = `Ahorras $${routine.savings.toLocaleString('es-CL')} (15% OFF)`;
     
     // Tips
     const tipsGrid = document.getElementById('tipsGrid');

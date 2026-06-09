@@ -83,7 +83,7 @@ MERCADOPAGO_WEBHOOK_SECRET=
 SITE_URL=https://fefy-cosmetics.vercel.app
 
 # Moneda
-CURRENCY=EUR
+CURRENCY=CLP
 
 # Entorno
 NODE_ENV=production

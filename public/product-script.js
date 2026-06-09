@@ -41,7 +41,7 @@ function initVariantSelector() {
             
             const price = btn.dataset.price;
             if (currentPrice && price) {
-                currentPrice.textContent = `€${price}`;
+                currentPrice.textContent = `$${price}`;
             }
         });
     });

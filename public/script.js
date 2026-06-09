@@ -431,7 +431,7 @@ function updateCartUI() {
     const totalPrice = AppState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     if (cartCount) cartCount.textContent = totalItems;
-    if (cartTotal) cartTotal.textContent = `€${totalPrice.toFixed(2)}`;
+    if (cartTotal) cartTotal.textContent = `$${totalPrice.toLocaleString('es-CL')}`;
 }
 
 function renderCart() {
@@ -472,7 +472,7 @@ function renderCart() {
                 <div class="cart-item__details">
                     <h4>${item.name}</h4>
                     <p class="item-size">${item.size}</p>
-                    <p class="item-price">€${item.price.toFixed(2)}</p>
+                    <p class="item-price">$${item.price.toLocaleString('es-CL')}</p>
                     <div class="item-quantity">
                         <button onclick="updateCartQuantity(${index}, -1)">-</button>
                         <span>${item.quantity}</span>
@@ -490,7 +490,7 @@ function renderCart() {
     cartBody.innerHTML = html;
     
     // Update totals
-    const shipping = total >= 50 ? 0 : 3.90;
+    const shipping = total >= 30000 ? 0 : 3990;
     const finalTotal = total + shipping;
     
     if (cartFooter) {
@@ -507,14 +507,14 @@ function renderCart() {
             if (total >= 50) {
                 progressText.innerHTML = '✨ ¡Envío gratis conseguido!';
             } else {
-                const remaining = (50 - total).toFixed(2);
-                progressText.innerHTML = `¡Te faltan €${remaining} para envío gratis!`;
+                const remaining = (30000 - total).toLocaleString('es-CL');
+                progressText.innerHTML = `¡Te faltan $${remaining} para envío gratis!`;
             }
         }
         
         // Update total
         const cartTotalEl = document.getElementById('cartTotal');
-        if (cartTotalEl) cartTotalEl.textContent = `€${finalTotal.toFixed(2)}`;
+        if (cartTotalEl) cartTotalEl.textContent = `$${finalTotal.toLocaleString('es-CL')}`;
         
         // Update checkout button to use Mercado Pago
         const checkoutBtn = cartFooter.querySelector('.btn-checkout-mp');
@@ -825,7 +825,7 @@ function showToast(message, type = 'info', duration = 3000) {
 // UTILITY FUNCTIONS
 // ==========================================
 function formatPrice(price) {
-    return `€${price.toFixed(2)}`;
+    return `$${price.toLocaleString('es-CL')}`;
 }
 
 function generateId() {

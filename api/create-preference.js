@@ -10,7 +10,7 @@ const { MercadoPagoConfig, Preference } = require('mercadopago');
 // ==========================================
 const MP_ACCESS_TOKEN = process.env.MERCADOPAGO_ACCESS_TOKEN;
 const SITE_URL = process.env.SITE_URL || 'https://fefy-cosmetics.vercel.app';
-const CURRENCY = process.env.CURRENCY || 'EUR';
+const CURRENCY = process.env.CURRENCY || 'CLP';
 
 // Catálogo de productos validado (fuente de verdad)
 // Precios definidos aquí, NO se confía en precios del frontend
@@ -19,8 +19,8 @@ const PRODUCTS_CATALOG = {
     id: 'crema-macadamia-monoi',
     title: 'Crema Hidratante Macadamia Monoi',
     description: 'Nutrición profunda con macadamia y monoi de Tahití. Hidratación 24h',
-    unit_price: 24.90,
-    currency_id: 'EUR',
+    unit_price: 24900,
+    currency_id: 'CLP',
     picture_url: null
   },
   'crema-pina-colada': {
@@ -28,47 +28,47 @@ const PRODUCTS_CATALOG = {
     title: 'Crema Hidratante Piña Colada',
     description: 'Hidratación tropical con piña fresca y coco. Luminosidad instantánea',
     unit_price: 24.90,
-    currency_id: 'EUR',
+    currency_id: 'CLP',
     picture_url: null
   },
   'serum-capilar': {
     id: 'serum-capilar',
     title: 'Sérum Capilar Reparador',
     description: 'Argán, coco, jojoba y lavanda. Repara puntas y controla frizz',
-    unit_price: 29.90,
-    currency_id: 'EUR',
+    unit_price: 29900,
+    currency_id: 'CLP',
     picture_url: null
   },
   'serum-pestanas': {
     id: 'serum-pestanas',
     title: 'Sérum Fortalecedor de Pestañas',
     description: 'Aceite de ricino, pantenol y vitamina E. Pestañas más largas y fuertes',
-    unit_price: 19.90,
-    currency_id: 'EUR',
+    unit_price: 19900,
+    currency_id: 'CLP',
     picture_url: null
   },
   'serum-acido-hialuronico': {
     id: 'serum-acido-hialuronico',
     title: 'Sérum Facial Ácido Hialurónico',
     description: '3 pesos moleculares de ácido hialurónico. Anti-edad e hidratación 3D',
-    unit_price: 32.90,
-    currency_id: 'EUR',
+    unit_price: 32900,
+    currency_id: 'CLP',
     picture_url: null
   },
   'tonico-agua-rosas': {
     id: 'tonico-agua-rosas',
     title: 'Tónico Facial Agua de Rosas',
     description: 'Agua de rosas damascenas destilada artesanalmente. Tonifica y equilibra',
-    unit_price: 18.90,
-    currency_id: 'EUR',
+    unit_price: 18900,
+    currency_id: 'CLP',
     picture_url: null
   },
   'jabon-masaje': {
     id: 'jabon-masaje',
     title: 'Jabón de Masaje Exfoliante',
     description: 'Jabón con esferas de silicona. Limpieza, masaje y exfoliación 2 en 1',
-    unit_price: 12.90,
-    currency_id: 'EUR',
+    unit_price: 12900,
+    currency_id: 'CLP',
     picture_url: null
   }
 };

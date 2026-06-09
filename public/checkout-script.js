@@ -66,7 +66,7 @@ function loadOrderSummary() {
                         <p>${item.size} × ${item.quantity}</p>
                     </div>
                 </div>
-                <span class="item-total">€${itemTotal.toFixed(2)}</span>
+                <span class="item-total">$${itemTotal.toLocaleString('es-CL')}</span>
             </div>
         `;
     });
@@ -77,10 +77,10 @@ function loadOrderSummary() {
     orderData.total = subtotal;
     
     // Update displays
-    if (subtotalEl) subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toLocaleString('es-CL')}`;
     updateTotal();
     
-    // Calculate loyalty points (1€ = 1 punto)
+    // Calculate loyalty points ($1.000 = 1 punto)
     if (loyaltyPoints) loyaltyPoints.textContent = `${Math.floor(subtotal)} puntos`;
 }
 
@@ -95,9 +95,9 @@ function updateTotal() {
     const total = orderData.subtotal + shipping - discount;
     orderData.total = total;
     
-    if (totalEl) totalEl.textContent = `€${total.toFixed(2)}`;
-    if (payButtonAmount) payButtonAmount.textContent = `€${total.toFixed(2)}`;
-    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `$${total.toLocaleString('es-CL')}`;
+    if (payButtonAmount) payButtonAmount.textContent = `$${total.toLocaleString('es-CL')}`;
+    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Gratis' : `$${shipping.toLocaleString('es-CL')}`;
     
     // Update discount line
     const discountLine = document.getElementById('discountLine');
@@ -105,7 +105,7 @@ function updateTotal() {
     
     if (discount > 0) {
         if (discountLine) discountLine.style.display = 'flex';
-        if (discountAmount) discountAmount.textContent = `-€${discount.toFixed(2)}`;
+        if (discountAmount) discountAmount.textContent = `-$${discount.toLocaleString('es-CL')}`;
     } else {
         if (discountLine) discountLine.style.display = 'none';
     }
@@ -339,14 +339,14 @@ function showConfirmation(order) {
             html += `
                 <div class="confirm-item">
                     <span>${item.name} × ${item.quantity}</span>
-                    <span>€${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>$${(item.price * item.quantity).toLocaleString('es-CL')}</span>
                 </div>
             `;
         });
         html += `
             <div class="confirm-total">
                 <strong>Total</strong>
-                <strong>€${order.total.toFixed(2)}</strong>
+                <strong>$${order.total.toLocaleString('es-CL')}</strong>
             </div>
         `;
         confirmItems.innerHTML = html;
