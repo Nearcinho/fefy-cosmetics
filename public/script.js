@@ -838,65 +838,89 @@ function generateId() {
 async function loadInstagramFeed() {
     const container = document.getElementById('instagramFeed');
     if (!container) return;
-    
+
+    // 1. Try manual posts first (real content from data/instagram-posts.js)
+    const manualPosts = (typeof window !== 'undefined' && window.FEFY_INSTAGRAM_POSTS) ? window.FEFY_INSTAGRAM_POSTS : [];
+    if (manualPosts && manualPosts.length > 0) {
+        renderInstagramPosts(container, manualPosts.slice(0, 8), 'manual');
+        return;
+    }
+
+    // 2. Fallback: try API (may have manual posts served from server)
     try {
         const response = await fetch('/api/instagram-feed');
         const data = await response.json();
-        
-        if (!data.success || !data.posts || data.posts.length === 0) {
-            throw new Error('No posts available');
+
+        if (data.success && data.posts && data.posts.length > 0) {
+            renderInstagramPosts(container, data.posts.slice(0, 8), data.source || 'api');
+            return;
         }
-        
-        const posts = data.posts.slice(0, 8); // Mostrar máximo 8 posts
-        
-        let html = '';
-        posts.forEach(post => {
-            const typeIcon = post.type === 'reel' ? '<i class="fas fa-play-circle post-type-icon"></i>' :
-                           post.type === 'carousel' ? '<i class="fas fa-clone post-type-icon"></i>' : '';
-            
-            const likesFormatted = post.likes >= 1000 
-                ? (post.likes / 1000).toFixed(1) + 'k' 
-                : post.likes;
-            
-            html += `
-                <a href="${post.url}" target="_blank" class="instagram-post" data-aos="zoom-in" data-aos-delay="${Math.random() * 200}">
-                    <img src="${post.thumbnail || post.image}" alt="${post.caption?.substring(0, 50) || 'Instagram post'}" loading="lazy">
-                    ${typeIcon}
-                    <div class="post-overlay">
-                        <div class="post-stats">
-                            <span><i class="fas fa-heart"></i> ${likesFormatted}</span>
-                            <span><i class="fas fa-comment"></i> ${post.comments || 0}</span>
-                        </div>
-                        <p class="post-caption">${post.caption || ''}</p>
-                    </div>
-                </a>
-            `;
-        });
-        
-        container.innerHTML = html;
-        
-        // Re-initialize AOS for new elements
-        if (typeof AOS !== 'undefined') {
-            AOS.refresh();
-        }
-        
-        console.log(`[Instagram] Loaded ${posts.length} posts from ${data.source}`);
-        
-    } catch (error) {
-        console.error('[Instagram] Error loading feed:', error);
-        
-        // Show fallback with link to Instagram
-        container.innerHTML = `
-            <div class="instagram-error">
-                <i class="fab fa-instagram"></i>
-                <h3>No pudimos cargar el feed</h3>
-                <p>Visita @fefycosmetics directamente en Instagram</p>
-                <a href="https://instagram.com/fefycosmetics" target="_blank" class="btn btn-primary" style="margin-top:16px;">
-                    <i class="fab fa-instagram"></i> Ver en Instagram
-                </a>
-            </div>
-        `;
+    } catch (e) {
+        console.log('[Instagram] API unavailable, showing CTA');
     }
+
+    // 3. No posts: show attractive CTA grid
+    renderInstagramPlaceholder(container);
+}
+
+function renderInstagramPosts(container, posts, source) {
+    let html = '';
+    posts.forEach((post, idx) => {
+        const typeIcon = post.type === 'reel' ? '<i class="fas fa-play-circle post-type-icon"></i>' :
+                       post.type === 'carousel' ? '<i class="fas fa-clone post-type-icon"></i>' : '';
+
+        const likesFormatted = post.likes >= 1000
+            ? (post.likes / 1000).toFixed(1) + 'k'
+            : post.likes;
+
+        html += `
+            <a href="${post.url}" target="_blank" class="instagram-post" data-aos="zoom-in" data-aos-delay="${idx * 50}">
+                <img src="${post.thumbnail || post.image}" alt="${(post.caption || '').substring(0, 50)}" loading="lazy">
+                ${typeIcon}
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="fas fa-heart"></i> ${likesFormatted}</span>
+                        <span><i class="fas fa-comment"></i> ${post.comments || 0}</span>
+                    </div>
+                    <p class="post-caption">${post.caption || ''}</p>
+                </div>
+            </a>
+        `;
+    });
+
+    container.innerHTML = html;
+    if (typeof AOS !== 'undefined') AOS.refresh();
+    console.log(`[Instagram] Loaded ${posts.length} posts from ${source}`);
+}
+
+function renderInstagramPlaceholder(container) {
+    // Attractive placeholder grid inviting users to follow
+    const placeholders = [
+        { icon: 'fa-spa', color: '#FFB6C1' },
+        { icon: 'fa-leaf', color: '#A8E6CF' },
+        { icon: 'fa-heart', color: '#FF8B94' },
+        { icon: 'fa-star', color: '#FFD3B6' },
+        { icon: 'fa-droplet', color: '#B4A7D6' },
+        { icon: 'fa-sun', color: '#FFD93D' }
+    ];
+
+    let html = '';
+    placeholders.forEach((p, idx) => {
+        html += `
+            <a href="https://www.instagram.com/fefycosmetics/" target="_blank" class="instagram-post instagram-placeholder" data-aos="zoom-in" data-aos-delay="${idx * 50}">
+                <div class="placeholder-inner" style="background:linear-gradient(135deg, ${p.color}22, ${p.color}44);">
+                    <i class="fas ${p.icon}" style="font-size:2.5rem;color:${p.color};"></i>
+                </div>
+                <div class="post-overlay" style="display:flex;align-items:center;justify-content:center;">
+                    <i class="fab fa-instagram" style="font-size:2rem;color:#fff;"></i>
+                </div>
+            </a>
+        `;
+    });
+
+    container.innerHTML = html;
+    if (typeof AOS !== 'undefined') AOS.refresh();
+    console.log('[Instagram] Showing placeholder grid (no posts configured)');
 }
 
 // Load Instagram feed when section is visible

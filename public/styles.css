@@ -2455,6 +2455,24 @@ html {
     z-index: 2;
 }
 
+/* Instagram Placeholder Grid */
+.instagram-post.instagram-placeholder {
+    background: linear-gradient(135deg, #faf0f3 0%, #f5f0fa 100%);
+}
+
+.instagram-post.instagram-placeholder .placeholder-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.instagram-post.instagram-placeholder:hover .placeholder-inner {
+    transform: scale(1.1);
+}
+
 /* Instagram Profile Card */
 .instagram-profile-card {
     background: linear-gradient(135deg, #f8f0f2 0%, #fff5f7 100%);
