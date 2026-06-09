@@ -51,7 +51,7 @@
 
 .product-images__main {
     position: relative;
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary-light) 100%);
+    background: transparent;
     border-radius: var(--radius-2xl);
     aspect-ratio: 1;
     display: flex;
