@@ -873,9 +873,14 @@ function renderInstagramPosts(container, posts, source) {
             ? (post.likes / 1000).toFixed(1) + 'k'
             : post.likes;
 
+        const isVideo = (post.image || '').match(/\.(mp4|webm|mov)$/i);
+        const media = isVideo
+            ? `<video src="${post.image}" autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>`
+            : `<img src="${post.thumbnail || post.image}" alt="${(post.caption || '').substring(0, 50)}" loading="lazy">`;
+
         html += `
             <a href="${post.url}" target="_blank" class="instagram-post" data-aos="zoom-in" data-aos-delay="${idx * 50}">
-                <img src="${post.thumbnail || post.image}" alt="${(post.caption || '').substring(0, 50)}" loading="lazy">
+                ${media}
                 ${typeIcon}
                 <div class="post-overlay">
                     <div class="post-stats">

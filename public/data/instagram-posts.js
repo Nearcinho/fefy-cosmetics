@@ -1,31 +1,53 @@
 /**
  * FEFY COSMETICS - Posts de Instagram (@fefycosmetics)
  *
- * INSTRUCCIONES para agregar posts reales:
- * 1. Ve a https://www.instagram.com/fefycosmetics/
- * 2. Descarga la imagen de cada post que quieras mostrar
- *    (botón derecho → "Guardar imagen como...")
- * 3. Guarda las imágenes en: public/images/instagram/
- *    Con nombres descriptivos: post-1.jpg, post-2.jpg, etc.
- * 4. Copia el enlace del post (ej: https://www.instagram.com/p/ABC123/)
- * 5. Agrega un objeto al array de abajo con los datos reales
- *
- * Ejemplo:
- * {
- *   id: '1',
- *   url: 'https://www.instagram.com/p/ABC123DEF/',
- *   image: 'images/instagram/post-1.jpg',
- *   thumbnail: 'images/instagram/post-1.jpg',
- *   caption: 'Nueva crema hidratante ✨ disponible ya en la web',
- *   likes: 1240,
- *   comments: 89,
- *   type: 'photo' // 'photo', 'carousel', o 'reel'
- * }
+ * INSTRUCCIONES para agregar o actualizar posts:
+ * 1. Guarda las imágenes/videos en: public/images/instagram/
+ * 2. Agrega un objeto al array de abajo con los datos reales
+ * 3. Todos los posts deben linkear a https://www.instagram.com/fefycosmetics/
  */
 
 const FEFY_INSTAGRAM_POSTS = [
-  // Agrega aquí los posts reales de @fefycosmetics siguiendo las instrucciones de arriba.
-  // Mientras esté vacío, la sección mostrará un CTA para seguir la cuenta.
+  {
+    id: '1',
+    url: 'https://www.instagram.com/fefycosmetics/',
+    image: 'images/instagram/ig-post-1.mp4',
+    thumbnail: 'images/instagram/ig-post-1.mp4',
+    caption: 'Con mi serum para todos lados! 🌿✨',
+    likes: 0,
+    comments: 0,
+    type: 'reel'
+  },
+  {
+    id: '2',
+    url: 'https://www.instagram.com/fefycosmetics/',
+    image: 'images/instagram/ig-post-2.png',
+    thumbnail: 'images/instagram/ig-post-2.png',
+    caption: 'Fefy Cosmetics - Productos naturales',
+    likes: 0,
+    comments: 0,
+    type: 'photo'
+  },
+  {
+    id: '3',
+    url: 'https://www.instagram.com/fefycosmetics/',
+    image: 'images/instagram/ig-post-3.png',
+    thumbnail: 'images/instagram/ig-post-3.png',
+    caption: 'Cuidado natural para tu piel 💧',
+    likes: 0,
+    comments: 0,
+    type: 'photo'
+  },
+  {
+    id: '4',
+    url: 'https://www.instagram.com/fefycosmetics/',
+    image: 'images/instagram/ig-post-4.mp4',
+    thumbnail: 'images/instagram/ig-post-4.mp4',
+    caption: 'Shampoo sólido - Sin sal, sin silicona, 100% natural 🧼',
+    likes: 0,
+    comments: 0,
+    type: 'reel'
+  }
 ];
 
 if (typeof window !== 'undefined') {
