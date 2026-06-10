@@ -949,6 +949,22 @@ input, textarea {
     font-size: 60px;
 }
 
+.founder-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-2xl);
+    display: block;
+}
+
+.founder-signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-primary-darker);
+    font-size: var(--text-lg);
+    margin-top: var(--space-2);
+}
+
 .experience-badge {
     position: absolute;
     top: 20px;
